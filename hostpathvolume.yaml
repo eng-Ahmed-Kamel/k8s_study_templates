@@ -1,3 +1,4 @@
+#hostpath 
 apiVersion: v1
 kind: Pod
 metadata:
@@ -14,6 +15,7 @@ spec:
   volumes:
     - name: test-volume
       hostPath:
-        path: /data
+        path: /data     # must be made on node manually
         type: Directory
-        
+nodeselector:
+  node: ozi-server

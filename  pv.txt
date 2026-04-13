@@ -1,0 +1,15 @@
+ReadWriteOnce (rwo)>>>> this mode allow the volume to be mounted as read and write on one node
+ReadWriteMany (rwx)>>>> this mode allow the volume to be mounted as read and write in multi node
+ReadOnlyMany (rox)>>>> this mode allow the volume to be mounted as read  in multi node
+
+in pv only one access mode
+hostpath >> rwo
+awsElasticBlockStore >> rwo
+azurefile>> rwo,rox,rwx
+
+
+kubectl get pv
+kubectl describe pv <pv-name>
+kubectl delete pv <pv-name>
+
+
