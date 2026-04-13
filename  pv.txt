@@ -25,8 +25,24 @@ hostpath,iscsi,local,nfs,amazonEBS,azuredisk,azurefile
 storageclass:
 static ,dynamic
 
+static life cycle create volume manually >>> pv>> pvc >>>> pod
+dynamic life cycle sc >>>>pvc>>> pod>>> then sc>>pv on cloud and connect pv with pvc
+
+
 dynamic >> create pvc automatic
 ReclaimPolicy:  #Delete or Retain
+volumeBindingMode: WaitForFirstConsumer (most plugin dont support)or immediate (default)
 
-  volumeBindingMode: WaitForFirstConsumer (most plugin dont support)or immediate (default)
+kubectl get sc
+kubectl describe sc <sc-name>
+kubectl delete sc <sc-name>
 
+
+lab
+
+create user with permission "amazonEBSCSIDriverPolicy "  >>>>> create access key
+create i am role with permission "amazonEBSCSIDriverPolicy attach to ec2
+install csi-ebs driver in cluster 
+add user credinaitals in cluster  
+
+kubectl create secret generic <secret name --aws-secret> --namespace kube-system --from-literal "key_id=<...........................>" --from-literal "access_key=<...........................>"
