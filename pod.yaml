@@ -8,7 +8,3 @@ spec:
   containers:
   - image: nginx:alpine
     name: nginx
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
-status: {}

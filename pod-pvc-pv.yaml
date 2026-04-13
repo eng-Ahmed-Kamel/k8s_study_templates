@@ -11,11 +11,8 @@ spec:
     name: nginx
     volumeMounts:
       - mountPath: /data-pd
-        name: test-volume
+        name: test-volume   ##here
   volumes:
-    - name: test-volume
-      hostPath:
-        path: /data     # must be made on node manually
-        type: Directory
-  nodeselector:
-    node: ozi-server
+    - name: test-volume  ##match here
+      persistentVolumeClaim:
+        claimName: my-pvc   #same as pvc name

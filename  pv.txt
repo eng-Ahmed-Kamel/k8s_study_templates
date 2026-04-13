@@ -12,4 +12,21 @@ kubectl get pv
 kubectl describe pv <pv-name>
 kubectl delete pv <pv-name>
 
+kubectl get pvc
+kubectl describe pvc <pvc-name>
+kubectl delete pvc <pvc-name>
+
+
+CSI  >container storage interface is plugin
+
+some storage type supported in kubernetes 
+hostpath,iscsi,local,nfs,amazonEBS,azuredisk,azurefile
+
+storageclass:
+static ,dynamic
+
+dynamic >> create pvc automatic
+ReclaimPolicy:  #Delete or Retain
+
+  volumeBindingMode: WaitForFirstConsumer (most plugin dont support)or immediate (default)
 
